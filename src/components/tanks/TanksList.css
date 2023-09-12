@@ -1,0 +1,21 @@
+.tag {
+    background-color: #007bff;
+    /* Replace with your desired background color */
+    color: #fff;
+    /* Text color */
+    padding: 4px 8px;
+    /* Adjust padding as needed */
+    margin-right: 4px;
+    /* Add margin between tags */
+    border-radius: 4px;
+    /* Rounded corners */
+}
+
+.tank-photo {
+    max-width: 100%;
+    /* Adjust the maximum width as needed */
+    height: auto;
+    /* Maintain aspect ratio */
+    margin-top: 10px;
+    /* Add spacing between the photo and other content */
+}
