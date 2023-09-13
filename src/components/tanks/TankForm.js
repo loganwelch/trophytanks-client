@@ -97,6 +97,7 @@ export const TankForm = ({ tags, token }) => {
                     onChange={(e) => setTankPhoto(e.target.value)}
                     required
                 />
+                <br />
                 <label>Tags:</label>
                 {tags.map((tag) => (
                     <label key={tag.id}>
