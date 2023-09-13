@@ -52,7 +52,7 @@ export const EditTankForm = () => {
             updateTagsOnTank(data)
             setPreviousTankTags(data)
         }
-    }, [tankFetched])
+    }, [tankFetched, tagList]) //added tagList to this array
 
     const handleSaveButtonClick = (event) => {
         event.preventDefault()

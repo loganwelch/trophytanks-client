@@ -18,7 +18,14 @@ export const Login = ({ setToken }) => {
 
         loginUser(user).then(res => {
             if ("valid" in res && res.valid) {
+                // Set the token in my state
                 setToken(res.token)
+
+                // Capture and store the userProfileId in localStorage
+                const userProfileId = res.userProfileId;
+                localStorage.setItem("userProfileId", userProfileId);
+
+                // Navigate to the desired route
                 navigate("/tanks")
             }
             else {

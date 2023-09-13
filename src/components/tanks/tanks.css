@@ -129,6 +129,17 @@ button[type="submit"]:hover {
     border-radius: 10px;
     padding: 20px;
     margin: 20px;
+    max-width: 600px; /* Set maximum width */
+    width: 100%; /* Set width to 100% to make it responsive */
+    box-sizing: border-box; /* Include padding and border in the width */
+    margin: 0 auto; /* Center horizontally */
+    display: flex; /* Enable flexbox layout */
+    flex-direction: column; /*Stack child elements vertically*/
+    align-items: center; /* Center child elements horizontally */
+    justify-content: center; /* Center child elements vertically */
+    min-height: 100vh; /* Ensure the container covers the entire viewport height */
 }
+
+
 
 /* Existing and additional styles below this line */
