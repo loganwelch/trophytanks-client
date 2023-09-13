@@ -14,7 +14,9 @@ export function CurrentUserTanks({ token }) {
 
     return (
         <div className="container">
-            <button className="new-button">New Tank +</button>
+            <Link to="/my-tanks/create">
+                <button className="add-tank-button">New Tank +</button>
+            </Link>
 
             <article className="tank-list">
                 {userTanks.map(
@@ -27,6 +29,11 @@ export function CurrentUserTanks({ token }) {
                             <section className="tank-data" >
                                 <img src={tankObject.photo_url} alt="{tankObject.title}" className="tank-picture" />
                             </section>
+                            <div className="tag-list">
+                                    {tankObject?.tags && Array.isArray(tankObject.tags) && tankObject.tags.map((tag) => (
+                                    <span className="tag" key={tag.id}>{tag.label}</span>
+                                ))}
+                            </div>
                         </div>
                         )
                     }

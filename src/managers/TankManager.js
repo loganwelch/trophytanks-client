@@ -49,4 +49,15 @@ export const createTank = (newTank) => {
     });
 };
 
+export const deleteTank = (tankId) => {
+    return fetch(`http://localhost:8000/tanks/${tankId}`, {
+        method: "DELETE",
+        headers: getAuthHeaders()
+    })
+    .then((response) => {
+        if (!response.ok) {
+            throw new Error("Failed to delete tank.")
+        }
+    })
+}
 

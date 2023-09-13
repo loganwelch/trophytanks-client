@@ -60,8 +60,23 @@ export const EditTankForm = () => {
         const editedTags = [...tagsOnTank]
         editedTank.tags = editedTags.map(tag => tag.id)
         editedTank.profile = editedTank.profile.id
-        editTank(tankId, editedTank).then(navigate(`/tanks/${tankId}`))
+
+        editTank(tankId, editedTank).then(() => {
+            getSingleTank({ tankId }).then((tankData) => {
+                updateTank(tankData);
+                navigate(`/my-tanks/${tankId}`);
+            });
+        });
     }
+
+    // const handleSaveButtonClick = (event) => {
+    //     event.preventDefault()
+    //     let editedTank = { ...tank }
+    //     const editedTags = [...tagsOnTank]
+    //     editedTank.tags = editedTags.map(tag => tag.id)
+    //     editedTank.profile = editedTank.profile.id
+    //     editTank(tankId, editedTank).then(navigate(`/tanks/${tankId}`))
+    // }
 
     const handleEditTags = (evt) => {
         const newTag = { ...tagObject }
