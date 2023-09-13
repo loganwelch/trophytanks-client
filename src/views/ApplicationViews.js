@@ -8,9 +8,9 @@ import { EditTankForm } from "../components/tanks/EditTank"
 // import { TagList } from "../components/tags/TagList"
 import { CurrentUserTanks } from "../components/tanks/CurrentUserTanks"
 // import { UserList } from "../components/users/UserList"
-// import { TankForm } from "../components/tanks/TankForm"
+import { TankForm } from "../components/tanks/TankForm"
 import { useState, useEffect } from "react"
-// import { getAllTags } from "../managers/TagManager"
+import { getAllTags } from "../managers/TagManager"
 // import { UserProfile } from "../components/users/UserDetails";  // Adjust the path as needed
 
 
@@ -19,10 +19,10 @@ export const ApplicationViews = ({ token, setToken }) => {
 
     const [tags, setTags] = useState([]);
 
-    // useEffect(() => {
-    //     // Fetch tags from the server and update the state
-    //     getAllTags().then((tagsData) => setTags(tagsData));
-    // }, []);
+    useEffect(() => {
+        // Fetch tags from the server and update the state
+        getAllTags().then((tagsData) => setTags(tagsData));
+    }, []);
 
 
     return <>
@@ -35,14 +35,15 @@ export const ApplicationViews = ({ token, setToken }) => {
                     <Route index element={<TankList setToken={setToken} />} />
                 </Route>
                 <Route path="/tanks/:tankId" element={<TankDetails />} />
-                <Route path="/tanks/:tankId/edit" element={<EditTankForm token={token} setToken={setToken} />} />
-                
+                <Route path="/my-tanks/:tankId" element={<TankDetails />} />
+                <Route path="/my-tanks/:tankId/edit" element={<EditTankForm token={token} setToken={setToken} />} />
+
                 <Route path="/my-tanks">
                     <Route index element={<CurrentUserTanks token={token} />} />
-
+                    <Route path="create" element={<TankForm token={token} setToken={setToken} tags={tags} />} />
                 </Route>
 
-                
+
             </Route>
 
         </Routes>

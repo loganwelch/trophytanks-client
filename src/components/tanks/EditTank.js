@@ -60,7 +60,13 @@ export const EditTankForm = () => {
         const editedTags = [...tagsOnTank]
         editedTank.tags = editedTags.map(tag => tag.id)
         editedTank.profile = editedTank.profile.id
-        editTank(tankId, editedTank).then(navigate(`/tanks/${tankId}`))
+
+        editTank(tankId, editedTank).then(() => {
+            getSingleTank({ tankId }).then((tankData) => {
+                updateTank(tankData);
+                navigate(`/my-tanks/${tankId}`);
+            });
+        });
     }
 
     const handleEditTags = (evt) => {
@@ -79,7 +85,7 @@ export const EditTankForm = () => {
 
     tagList.sort((a, b) => a.id - b.id);
 
-    return(
+    return (
         <form className="tankForm">
             <h2 className="tankFormHeader">Edit Your Tank</h2>
 
