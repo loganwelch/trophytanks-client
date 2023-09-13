@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import { getSingleTank } from '../../managers/TankManager';
+import { Link, useParams, useNavigate } from 'react-router-dom';
+import { getSingleTank, deleteTank } from '../../managers/TankManager';
 
 export const TankDetails = () => {
     const { tankId } = useParams();
     const [selectedTank, setSelectedTank] = useState([]);
+    const navigate = useNavigate()
 
     // Get the profile id of the logged-in user
     const loggedInUserProfileId = parseInt(localStorage.getItem("userProfileId"));
@@ -20,6 +21,29 @@ export const TankDetails = () => {
             getTankDetails();
         }
     }, [tankId]);
+
+
+    const deleteTankButton = (tankId) => {
+        if (selectedTank?.profile?.id === loggedInUserProfileId) {
+            return (
+                <button
+                    onClick={() => {
+                        const shouldDelete = window.confirm('Are you sure you want to delete this tank?')
+                        if (shouldDelete) {
+                            deleteTank(tankId).then(() => {
+                                navigate(`/my-tanks`)
+                            })
+                        }
+                    }}
+                    className="submission__delete small-button"
+                >
+                    Delete
+                </button>
+            )
+        }
+        // If the tank's profile ID doesn't match the logged-in user's profile ID, return null (no button)
+        return null;
+    }
 
     return (
         <div>
@@ -46,6 +70,7 @@ export const TankDetails = () => {
                     {(selectedTank?.profile?.id === loggedInUserProfileId || !selectedTank || !selectedTank.profile) && (
                         <Link to={`/my-tanks/${selectedTank.id}/edit`} key={selectedTank.id}>Edit Tank</Link>
                     )}
+                    <div>{deleteTankButton(selectedTank.id)}</div>
                 </article>
             )}
         </div>
