@@ -5,6 +5,7 @@ const getAuthHeaders = () => ({
 
 export const getAllTags = () => {
     return fetch("http://localhost:8000/tags", {
+        method: "GET",
         headers: getAuthHeaders()
     })
         .then((response) => {
