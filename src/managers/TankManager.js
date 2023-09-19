@@ -11,7 +11,7 @@ export const getAllTanks = () => {
             if (response.ok) {
                 return response.json();
             } else {
-                throw new Error("Failed to fetch post.");
+                throw new Error("Failed to fetch tanks.");
             }
         });
 };

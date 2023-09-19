@@ -1,6 +1,8 @@
 import { useState } from "react"
+import React from "react";
 import { ApplicationViews } from "./views/ApplicationViews"
 import { NavBar } from "./components/nav/NavBar"
+import "./Trophy.css"
 
 
 export const Trophy = () => {

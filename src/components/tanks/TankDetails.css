@@ -1,0 +1,73 @@
+
+
+.tank-detail-card {
+    text-align: center;
+    margin: 30px auto;
+    max-width: 80%;
+    min-width: 600px;
+    padding: 20px;
+    background-color: rgb(90, 168, 151, 0.35);
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.tank-details {
+    text-align: left;
+    width: calc(100% - 10px);
+        /* Subtract 10px (5px padding on each side) from 100% */
+        margin: 0 auto;
+        display: block;
+        padding: 5px;
+}
+
+.tank-details h1 {
+    font-size: 24px;
+}
+
+/* .tank-img {
+    max-width: 80%;
+    min-width: 600px;
+    display: block;
+    margin: 0 auto;
+} */
+.tank-img {
+    width: 100%;
+    /* Subtract 10px (5px padding on each side) from 100% */
+    margin: 0 auto;
+    display: block;
+    padding: 5px;
+    /* Add 5px padding to the image */
+    box-sizing: border-box;
+    /* Ensure padding is included in the width */
+}
+
+.tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.tag {
+    background-color: #007bff;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 100px;
+}
+
+.tank-detail-footer-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center the items horizontally */
+    text-align: center;
+    /* Center the text inside the buttons */
+    margin: 0 auto;
+}
+
+/* Optional: Add spacing between the buttons if needed */
+.tank-detail-footer-buttons>div {
+    margin-top: 10px;
+    /* Adjust the spacing as needed */
+}

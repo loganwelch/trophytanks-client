@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { getSingleTank, deleteTank } from '../../managers/TankManager';
+import "./TankDetails.css";
 
 export const TankDetails = () => {
     const { tankId } = useParams();
@@ -46,10 +47,10 @@ export const TankDetails = () => {
     }
 
     return (
-        <div>
+        <div className="tank-detail-card">
             <h1>Tank Details:</h1>
             {selectedTank && (
-                <article className="tank-card">
+                <article className="tank-details">
                     <h3>{selectedTank.name}</h3>
                     <p>
                         Profile: {selectedTank?.profile?.full_name}
@@ -67,10 +68,14 @@ export const TankDetails = () => {
                     <div>
                         <img src={selectedTank?.photo_url} alt={selectedTank?.name} className="tank-img" />
                     </div>
-                    {(selectedTank?.profile?.id === loggedInUserProfileId || !selectedTank || !selectedTank.profile) && (
-                        <Link to={`/my-tanks/${selectedTank.id}/edit`} key={selectedTank.id}>Edit Tank</Link>
-                    )}
-                    <div>{deleteTankButton(selectedTank.id)}</div>
+                    <div className="tank-detail-footer-buttons">
+                        <div className="tank-detail-edit-button">
+                            {(selectedTank?.profile?.id === loggedInUserProfileId || !selectedTank || !selectedTank.profile) && (
+                                <Link to={`/my-tanks/${selectedTank.id}/edit`} key={selectedTank.id}>Edit Tank</Link>
+                            )}
+                        </div>
+                        <div className="tank-detail-delete-button">{deleteTankButton(selectedTank.id)}</div>
+                    </div>
                 </article>
             )}
         </div>
