@@ -1,3 +1,44 @@
 .navbar-item img {
     max-height: 3rem;
 }
+
+/* Default styles for the navbar */
+.navbar {
+    background-color: #007bff;/* Set your desired navbar background color */
+    color: #fff;/* Text color */
+    padding: 20px;
+    text-align: center;
+}
+
+/* Style for the navbar links */
+.navbar a {
+    text-decoration: none;
+    color: #fff;
+    /* Set your initial text color */
+    padding: 10px 20px;
+    margin: 0 10px;
+    transition: background-color 0.3s, color 0.3s;
+    /* Add smooth transition */
+}
+
+/* Hover effect for navbar links */
+.navbar a:hover {
+    background-color: #f0f0f0;
+    /* Change background color on hover */
+    color: #333;
+    /* Change text color on hover */
+}
+
+/* Optional: Add other hover effects for different parts of the navbar */
+.navbar #logo:hover {
+    /* Add specific hover effect for the logo */
+    transform: rotate(360deg);
+    /* Rotate the logo on hover */
+}
+
+.navbar .button:hover {
+    /* Add specific hover effect for buttons */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    /* Add shadow on hover */
+}
+

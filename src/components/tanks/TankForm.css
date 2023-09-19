@@ -1,0 +1,54 @@
+.tank-form-tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    /* Adjust the gap between tags as needed */
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.tank-form-tags-list label {
+    display: inline-block;
+        margin-right: 10px;
+        /* Adjust the right margin between tags as needed */
+        background-color: #007bff;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 100px;
+}
+
+.tank-form-footer-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center the items horizontally */
+    text-align: center;
+    /* Center the text inside the buttons */
+    margin: 0 auto;
+}
+
+.tank-form-container {
+    background-color: rgb(90, 168, 151, 0.35);
+        border-radius: 15px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);;
+    padding: 20px;
+    margin: 20px;
+    max-width: 600px;
+    /* Set maximum width */
+    width: 100%;
+    /* Set width to 100% to make it responsive */
+    box-sizing: border-box;
+    /* Include padding and border in the width */
+    margin: 0 auto;
+    /* Center horizontally */
+    display: flex;
+    /* Enable flexbox layout */
+    flex-direction: column;
+    /*Stack child elements vertically*/
+    align-items: center;
+    /* Center child elements horizontally */
+    justify-content: center;
+    /* Center child elements vertically */
+    min-height: 100vh;
+    /* Ensure the container covers the entire viewport height */
+}

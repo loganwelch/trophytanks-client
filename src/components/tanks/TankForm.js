@@ -1,6 +1,176 @@
+// import React, { useState } from 'react';
+// import { createTank } from '../../managers/TankManager';
+// import { useNavigate } from 'react-router-dom';
+// import "./TankForm.css";
+
+// export const TankForm = ({ tags, token }) => {
+//     const [tankName, setTankName] = useState('')
+//     const [tankGallons, setTankGallons] = useState('')
+//     const [tankStartedDate, setTankStartedDate] = useState('')
+//     const [tankFlora, setTankFlora] = useState('')
+//     const [tankFauna, setTankFauna] = useState('')
+//     const [tankComments, setTankComments] = useState('')
+//     const [tankPhoto, setTankPhoto] = useState('')
+//     const [selectedTags, setSelectedTags] = useState([])
+//     const navigate = useNavigate()
+
+//     const handleFocus = (e) => {
+//         const background = e.target.id;
+//         document.getElementById(background + '-form').classList.add('formgroup-active');
+//         document.getElementById(background + '-form').classList.remove('formgroup-error');
+//     };
+
+//     const handleBlur = (e) => {
+//         const background = e.target.id;
+//         document.getElementById(background + '-form').classList.remove('formgroup-active');
+//     };
+
+//     const handleSubmit = (e) => {
+//         e.preventDefault()
+
+//         const newTank = {
+//             user_id: token,
+//             name: tankName,
+//             gallons: tankGallons,
+//             started_date: tankStartedDate,
+//             flora: tankFlora,
+//             fauna: tankFauna,
+//             noteworthy_comments: tankComments,
+//             photo_url: tankPhoto,
+//             tags: selectedTags
+//         }
+//         createTank(newTank)
+//             .then(response => response.json())
+//             .then((data) => {
+//                 const createdTankId = data.id;
+//                 navigate(`/my-tanks/${createdTankId}`)
+//             })
+//     }
+
+//     return (
+//         <div className="tank-form-container">
+//             <header>
+//                 <h1>Add a New Tank</h1>
+//             </header>
+//             <div id="form">
+//                 <div className="fish" id="fish"></div>
+//                 <div className="fish" id="fish2"></div>
+//             </div>
+//                 <form id="waterform" onSubmit={handleSubmit}>
+//                     <div className="formgroup" id="name-form">
+//                         <label htmlFor="tankName">Name:</label>
+//                         <input
+//                             type="text"
+//                             id="tankName"
+//                             value={tankName}
+//                             onChange={(e) => setTankName(e.target.value)}
+//                             onFocus={handleFocus}
+//                             onBlur={handleBlur}
+//                             required
+//                         />
+//                     </div>
+//                     <div className="formgroup" id="tankGallons-form">
+//                         <label htmlFor="tankGallons">Gallons:</label>
+//                         <input
+//                             type="number"
+//                             id="tankGallons"
+//                             value={tankGallons}
+//                             onChange={(e) => setTankGallons(e.target.value)}
+//                             onFocus={handleFocus}
+//                             onBlur={handleBlur}
+//                             required
+//                         />
+//                     </div>
+//                     <div className="formgroup" id="tankStartedDate-form">
+//                         <label htmlFor="tankStartedDate">Started Date:</label>
+//                         <input
+//                             type="text"
+//                             id="tankStartedDate"
+//                             value={tankStartedDate}
+//                             onChange={(e) => setTankStartedDate(e.target.value)}
+//                             onFocus={handleFocus}
+//                             onBlur={handleBlur}
+//                             required
+//                         />
+//                     </div>
+//                     <div className="formgroup" id="tankFlora-form">
+//                     <label htmlFor="tankFlora">Tank Flora:</label>
+//                         <textarea
+//                             id="tankFlora"
+//                             value={tankFlora}
+//                             onChange={(e) => setTankFlora(e.target.value)}
+//                             onFocus={handleFocus}
+//                             onBlur={handleBlur}
+//                             required
+//                         />
+//                     </div>
+//                     <div className="formgroup" id="tankFauna-form">
+//                         <label htmlFor="tankFauna">Tank Fauna:</label>
+//                         <textarea
+//                             id="tankFauna"
+//                             value={tankFauna}
+//                             onChange={(e) => setTankFauna(e.target.value)}
+//                             onFocus={handleFocus}
+//                             onBlur={handleBlur}
+//                             required
+//                         />
+//                     </div>
+//                     <div className="formgroup" id="tankComments-form">
+//                         <label htmlFor="tankComments">What should we know about this tank?</label>
+//                         <textarea
+//                             id="tankComments"
+//                             value={tankComments}
+//                             onChange={(e) => setTankComments(e.target.value)}
+//                             onFocus={handleFocus}
+//                             onBlur={handleBlur}
+//                             required
+//                         />
+//                     </div>
+//                     <div className="formgroup" id="tankPhoto-form">
+//                         <label htmlFor="tankPhoto">Photo Url:</label>
+//                         <input
+//                             type="url"
+//                             id="tankPhoto"
+//                             value={tankPhoto}
+//                             onChange={(e) => setTankPhoto(e.target.value)}
+//                             onFocus={handleFocus}
+//                             onBlur={handleBlur}
+//                             required
+//                         />
+//                     </div>
+                    
+//                     <div className="formgroup" id="tankTags-form">
+//                         <label>Tags:</label>
+//                         {tags.map((tag) => (
+//                             <label key={tag.id}>
+//                                 <input
+//                                     type="checkbox"
+//                                     value={tag.id}
+//                                     checked={selectedTags.includes(tag.id)}
+//                                     onChange={(e) =>
+//                                         e.target.checked
+//                                             ? setSelectedTags([...selectedTags, tag.id])
+//                                             : setSelectedTags(selectedTags.filter((id) => id !== tag.id))
+//                                     }
+//                                     onFocus={handleFocus}
+//                                     onBlur={handleBlur}
+//                                 />
+//                                 {tag.label}
+//                             </label>
+//                         ))}
+//                     </div>
+                    
+//                     <br />
+//                     <button type="submit">Add This Tank</button>
+//                 </form>
+//         </div>
+//     )
+// }
+
 import React, { useState } from 'react';
 import { createTank } from '../../managers/TankManager';
 import { useNavigate } from 'react-router-dom';
+import "./TankForm.css";
 
 export const TankForm = ({ tags, token }) => {
     const [tankName, setTankName] = useState('')
@@ -34,6 +204,7 @@ export const TankForm = ({ tags, token }) => {
                 navigate(`/my-tanks/${createdTankId}`)
             })
     }
+    const sortedTags = tags.sort((a, b) => a.id - b.id)
 
     return (
         <div className="tank-form-container">
@@ -99,7 +270,10 @@ export const TankForm = ({ tags, token }) => {
                 />
                 <br />
                 <label>Tags:</label>
-                {tags.map((tag) => (
+                <div className="tank-form-tags-list">
+
+                
+                {sortedTags.map((tag) => (
                     <label key={tag.id}>
                         <input
                             type="checkbox"
@@ -114,8 +288,12 @@ export const TankForm = ({ tags, token }) => {
                         {tag.label}
                     </label>
                 ))}
+                </div>
                 <br />
-                <button type="submit">Add This Tank</button>
+                <div className="tank-form-footer-buttons">
+                    <button type="submit">Add This Tank</button>
+                    <button onClick={() => (navigate(`/my-tanks`))}>Cancel</button>
+                </div>
             </form>
         </div>
     )

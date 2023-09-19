@@ -18,13 +18,15 @@ export const TankList = () => {
     return (
         <div className="container">
             <h1 className="tanks-title">All Tanks</h1>
-            <article className="">
+            <article className="tank-rows">
                 {tanks.map(
                     (tankObject) => {
                         return <div className="tank" key={tankObject.id}  >
-                            <div className="title"><Link to={`/tanks/${tankObject.id}`} key={tankObject.id}>{tankObject.name}</Link></div>
-                            <section className="" >
-                                <div>{tankObject.profile.full_name}</div>
+                            <div className="title">
+                                <Link to={`/tanks/${tankObject.id}`} key={tankObject.id}>{tankObject.name}</Link></div>
+                            <div>{tankObject.profile.full_name}</div>
+                            <section className="tank-card-list" >
+                                
                                 <div>
                                     <img src={tankObject.photo_url} alt={tankObject.name} className="tank-photo" />
                                 </div>
@@ -37,7 +39,7 @@ export const TankList = () => {
                         </div>
                     })}
             </article >
-            <Link to="/tanks/create" className="add-tank-button">
+            <Link to="/my-tanks/create" className="add-tank-button">
                 Add Tank +
             </Link>
         </div >

@@ -1,0 +1,70 @@
+.edit-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* height: 100vh; */
+}
+
+.tank-edit-Form {
+    max-width: 80%;
+    min-width: 600px;
+    padding: 20px;
+    background-color: rgb(90, 168, 151, 0.35);
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.edit-tank-tags-header {
+    margin-top: 20px;
+    /* Add some top margin to create space for tags header */
+}
+
+.edit-tank-tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    /* Adjust the gap between tags as needed */
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.edit-tank-tags-list label {
+    display: inline-block;
+    margin-right: 10px;
+    /* Adjust the right margin between tags as needed */
+    background-color: #007bff;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 100px;
+}
+
+.edit-tank-footer-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center the items horizontally */
+    text-align: center;
+    /* Center the text inside the buttons */
+    margin: 0 auto;
+}
+
+.edit-tank-name, .edit-tank-flora, .edit-tank-fauna, .edit-tank-comments {
+width: 100%;
+padding: 10px;
+margin: 5px 0 20px 0;
+display: inline-block;
+/* border: 1px solid #ccc; */
+border-radius: 4px;
+box-sizing: border-box;
+}
+
+fieldset {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 20px 0;
+    display: inline-block;
+    border: none;
+    border-radius: 4px;
+    box-sizing: border-box;
+}

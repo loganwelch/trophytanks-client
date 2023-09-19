@@ -1,6 +1,7 @@
 import { useRef, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { loginUser } from "../../managers/AuthManager"
+import "./LoginPage.css";
 
 export const Login = ({ setToken }) => {
     const username = useRef()
@@ -35,37 +36,56 @@ export const Login = ({ setToken }) => {
     }
 
     return (
-        <section className="columns is-centered">
-            <form className="column is-two-thirds" onSubmit={handleLogin}>
-                <h1 className="title">Trophy Tanks</h1>
-                <p className="subtitle">Please sign in</p>
+        <div className="login-page">
+            <div className="bubbles-background">
+                <section class="sticky">
+                    <div class="bubbles">
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
 
-                <div className="field">
-                    <label className="label">Username</label>
-                    <div className="control">
-                        <input className="input" type="text" ref={username} />
                     </div>
-                </div>
+                </section>
+            </div>      
+            <section className="login-container">
+                <form className="login-card" onSubmit={handleLogin}>
+                    <h1 className="title">Trophy Tanks</h1>
+                    <p className="subtitle">Please sign in</p>
 
-                <div className="field">
-                    <label className="label">Password</label>
-                    <div className="control">
-                        <input className="input" type="password" ref={password} />
+                    <div className="field">
+                        <label className="login-label">Username</label>
+                        <div className="control">
+                            <input className="login-input" type="text" ref={username} />
+                        </div>
                     </div>
-                </div>
 
-                <div className="field is-grouped">
-                    <div className="control">
-                        <button className="button is-link" type="submit" >Submit</button>
+                    <div className="field">
+                        <label className="login-label">Password</label>
+                        <div className="control">
+                            <input className="login-input" type="password" ref={password} />
+                        </div>
                     </div>
-                    <div className="control">
-                        <Link to="/register" className="button is-link is-light">Cancel</Link>
+
+                    <div className="login-buttons">
+                        <div className="control">
+                            <button className="button is-link" type="submit" >Submit</button>
+                        </div>
+                        <div className="control">
+                            <Link to="/register" className="button is-link is-light">Cancel</Link>
+                        </div>
                     </div>
-                </div>
-                {
-                    isUnsuccessful ? <p className="help is-danger">Username or password not valid</p> : ''
-                }
-            </form>
-        </section>
+                    {
+                        isUnsuccessful ? <p className="help is-danger">Username or password not valid</p> : ''
+                    }
+                </form>
+            </section>
+        </div> 
     )
 }

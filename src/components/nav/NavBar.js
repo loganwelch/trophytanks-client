@@ -17,7 +17,7 @@ export const NavBar = ({ token, setToken }) => {
     return (
         <nav className="navbar is-success mb-3" role="navigation" aria-label="main navigation">
             <div className="navbar-brand">
-                <a className="navbar-item" href="/posts">
+                <a className="navbar-item" href="/tanks">
                     <img src={Logo} height="3rem" alt="Trophy Tanks Logo" /> <h1 className="title is-4">Trophy Tanks</h1>
                 </a>
 
