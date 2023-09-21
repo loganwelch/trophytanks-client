@@ -24,6 +24,10 @@
     font-size: 24px;
 }
 
+.tank-details p span.bold-label {
+    font-weight: bold !important;
+}
+
 /* .tank-img {
     max-width: 80%;
     min-width: 600px;

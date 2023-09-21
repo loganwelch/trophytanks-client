@@ -14,17 +14,6 @@
 //     const [selectedTags, setSelectedTags] = useState([])
 //     const navigate = useNavigate()
 
-//     const handleFocus = (e) => {
-//         const background = e.target.id;
-//         document.getElementById(background + '-form').classList.add('formgroup-active');
-//         document.getElementById(background + '-form').classList.remove('formgroup-error');
-//     };
-
-//     const handleBlur = (e) => {
-//         const background = e.target.id;
-//         document.getElementById(background + '-form').classList.remove('formgroup-active');
-//     };
-
 //     const handleSubmit = (e) => {
 //         e.preventDefault()
 
@@ -46,123 +35,97 @@
 //                 navigate(`/my-tanks/${createdTankId}`)
 //             })
 //     }
+//     const sortedTags = tags.sort((a, b) => a.id - b.id)
 
 //     return (
 //         <div className="tank-form-container">
-//             <header>
-//                 <h1>Add a New Tank</h1>
-//             </header>
-//             <div id="form">
-//                 <div className="fish" id="fish"></div>
-//                 <div className="fish" id="fish2"></div>
-//             </div>
-//                 <form id="waterform" onSubmit={handleSubmit}>
-//                     <div className="formgroup" id="name-form">
-//                         <label htmlFor="tankName">Name:</label>
+//             <h2>Add a New Tank</h2>
+//             <form onSubmit={handleSubmit}>
+//                 <label htmlFor="tankName">Name:</label>
+//                 <input
+//                     type="text"
+//                     id="tankName"
+//                     value={tankName}
+//                     onChange={(e) => setTankName(e.target.value)}
+//                     required
+//                 />
+//                 <br />
+//                 <label htmlFor="tankGallons">Gallons:</label>
+//                 <input
+//                     type="number"
+//                     id="tankGallons"
+//                     value={tankGallons}
+//                     onChange={(e) => setTankGallons(e.target.value)}
+//                     required
+//                 />
+//                 <br />
+//                 <label htmlFor="tankStartedDate">Started Date:</label>
+//                 <input
+//                     type="text"
+//                     id="tankStartedDate"
+//                     value={tankStartedDate}
+//                     onChange={(e) => setTankStartedDate(e.target.value)}
+//                     required
+//                 />
+//                 <br />
+//                 <label htmlFor="tankFlora">Tank Flora:</label>
+//                 <textarea
+//                     id="tankFlora"
+//                     value={tankFlora}
+//                     onChange={(e) => setTankFlora(e.target.value)}
+//                     required
+//                 />
+//                 <br />
+//                 <label htmlFor="tankFauna">Tank Fauna:</label>
+//                 <textarea
+//                     id="tankFauna"
+//                     value={tankFauna}
+//                     onChange={(e) => setTankFauna(e.target.value)}
+//                     required
+//                 />
+//                 <br />
+//                 <label htmlFor="tankComments">What should we know about this tank?</label>
+//                 <textarea
+//                     id="tankComments"
+//                     value={tankComments}
+//                     onChange={(e) => setTankComments(e.target.value)}
+//                     required
+//                 />
+//                 <label htmlFor="tankPhoto">Photo Url:</label>
+//                 <input
+//                     type="url"
+//                     id="tankPhoto"
+//                     value={tankPhoto}
+//                     onChange={(e) => setTankPhoto(e.target.value)}
+//                     required
+//                 />
+//                 <br />
+//                 <label>Tags:</label>
+//                 <div className="tank-form-tags-list">
+
+                
+//                 {sortedTags.map((tag) => (
+//                     <label key={tag.id}>
 //                         <input
-//                             type="text"
-//                             id="tankName"
-//                             value={tankName}
-//                             onChange={(e) => setTankName(e.target.value)}
-//                             onFocus={handleFocus}
-//                             onBlur={handleBlur}
-//                             required
+//                             type="checkbox"
+//                             value={tag.id}
+//                             checked={selectedTags.includes(tag.id)}
+//                             onChange={(e) =>
+//                                 e.target.checked
+//                                     ? setSelectedTags([...selectedTags, tag.id])
+//                                     : setSelectedTags(selectedTags.filter((id) => id !== tag.id))
+//                             }
 //                         />
-//                     </div>
-//                     <div className="formgroup" id="tankGallons-form">
-//                         <label htmlFor="tankGallons">Gallons:</label>
-//                         <input
-//                             type="number"
-//                             id="tankGallons"
-//                             value={tankGallons}
-//                             onChange={(e) => setTankGallons(e.target.value)}
-//                             onFocus={handleFocus}
-//                             onBlur={handleBlur}
-//                             required
-//                         />
-//                     </div>
-//                     <div className="formgroup" id="tankStartedDate-form">
-//                         <label htmlFor="tankStartedDate">Started Date:</label>
-//                         <input
-//                             type="text"
-//                             id="tankStartedDate"
-//                             value={tankStartedDate}
-//                             onChange={(e) => setTankStartedDate(e.target.value)}
-//                             onFocus={handleFocus}
-//                             onBlur={handleBlur}
-//                             required
-//                         />
-//                     </div>
-//                     <div className="formgroup" id="tankFlora-form">
-//                     <label htmlFor="tankFlora">Tank Flora:</label>
-//                         <textarea
-//                             id="tankFlora"
-//                             value={tankFlora}
-//                             onChange={(e) => setTankFlora(e.target.value)}
-//                             onFocus={handleFocus}
-//                             onBlur={handleBlur}
-//                             required
-//                         />
-//                     </div>
-//                     <div className="formgroup" id="tankFauna-form">
-//                         <label htmlFor="tankFauna">Tank Fauna:</label>
-//                         <textarea
-//                             id="tankFauna"
-//                             value={tankFauna}
-//                             onChange={(e) => setTankFauna(e.target.value)}
-//                             onFocus={handleFocus}
-//                             onBlur={handleBlur}
-//                             required
-//                         />
-//                     </div>
-//                     <div className="formgroup" id="tankComments-form">
-//                         <label htmlFor="tankComments">What should we know about this tank?</label>
-//                         <textarea
-//                             id="tankComments"
-//                             value={tankComments}
-//                             onChange={(e) => setTankComments(e.target.value)}
-//                             onFocus={handleFocus}
-//                             onBlur={handleBlur}
-//                             required
-//                         />
-//                     </div>
-//                     <div className="formgroup" id="tankPhoto-form">
-//                         <label htmlFor="tankPhoto">Photo Url:</label>
-//                         <input
-//                             type="url"
-//                             id="tankPhoto"
-//                             value={tankPhoto}
-//                             onChange={(e) => setTankPhoto(e.target.value)}
-//                             onFocus={handleFocus}
-//                             onBlur={handleBlur}
-//                             required
-//                         />
-//                     </div>
-                    
-//                     <div className="formgroup" id="tankTags-form">
-//                         <label>Tags:</label>
-//                         {tags.map((tag) => (
-//                             <label key={tag.id}>
-//                                 <input
-//                                     type="checkbox"
-//                                     value={tag.id}
-//                                     checked={selectedTags.includes(tag.id)}
-//                                     onChange={(e) =>
-//                                         e.target.checked
-//                                             ? setSelectedTags([...selectedTags, tag.id])
-//                                             : setSelectedTags(selectedTags.filter((id) => id !== tag.id))
-//                                     }
-//                                     onFocus={handleFocus}
-//                                     onBlur={handleBlur}
-//                                 />
-//                                 {tag.label}
-//                             </label>
-//                         ))}
-//                     </div>
-                    
-//                     <br />
+//                         {tag.label}
+//                     </label>
+//                 ))}
+//                 </div>
+//                 <br />
+//                 <div className="tank-form-footer-buttons">
 //                     <button type="submit">Add This Tank</button>
-//                 </form>
+//                     <button onClick={() => (navigate(`/my-tanks`))}>Cancel</button>
+//                 </div>
+//             </form>
 //         </div>
 //     )
 // }
@@ -230,7 +193,7 @@ export const TankForm = ({ tags, token }) => {
                 <br />
                 <label htmlFor="tankStartedDate">Started Date:</label>
                 <input
-                    type="text"
+                    type="date"
                     id="tankStartedDate"
                     value={tankStartedDate}
                     onChange={(e) => setTankStartedDate(e.target.value)}
@@ -272,22 +235,22 @@ export const TankForm = ({ tags, token }) => {
                 <label>Tags:</label>
                 <div className="tank-form-tags-list">
 
-                
-                {sortedTags.map((tag) => (
-                    <label key={tag.id}>
-                        <input
-                            type="checkbox"
-                            value={tag.id}
-                            checked={selectedTags.includes(tag.id)}
-                            onChange={(e) =>
-                                e.target.checked
-                                    ? setSelectedTags([...selectedTags, tag.id])
-                                    : setSelectedTags(selectedTags.filter((id) => id !== tag.id))
-                            }
-                        />
-                        {tag.label}
-                    </label>
-                ))}
+
+                    {sortedTags.map((tag) => (
+                        <label key={tag.id}>
+                            <input
+                                type="checkbox"
+                                value={tag.id}
+                                checked={selectedTags.includes(tag.id)}
+                                onChange={(e) =>
+                                    e.target.checked
+                                        ? setSelectedTags([...selectedTags, tag.id])
+                                        : setSelectedTags(selectedTags.filter((id) => id !== tag.id))
+                                }
+                            />
+                            {tag.label}
+                        </label>
+                    ))}
                 </div>
                 <br />
                 <div className="tank-form-footer-buttons">
