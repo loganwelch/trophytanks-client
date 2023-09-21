@@ -18,6 +18,8 @@ body {
     padding: 0;
     /* background: #29b6f6 !important; */
 }
+
+
 .register-container {
     z-index: 0;
     display: flex;

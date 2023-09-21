@@ -1,7 +1,7 @@
 import { useRef } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import "./NavBar.css"
-import Logo from "./TROPHYTANKSLOGO.jpeg"
+import Logo from "./TROPHYTANKSLOGO.png"
 
 export const NavBar = ({ token, setToken }) => {
     const navigate = useNavigate()
@@ -18,7 +18,8 @@ export const NavBar = ({ token, setToken }) => {
         <nav className="navbar is-success mb-3" role="navigation" aria-label="main navigation">
             <div className="navbar-brand">
                 <a className="navbar-item" href="/tanks">
-                    <img src={Logo} height="3rem" alt="Trophy Tanks Logo" /> <h1 className="title is-4">Trophy Tanks</h1>
+                    <img src={Logo} height="100rem" width="300" alt="Trophy Tanks Logo" /> 
+                    {/* <h1 className="title">Trophy Tanks</h1> */}
                 </a>
 
                 {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
@@ -28,7 +29,7 @@ export const NavBar = ({ token, setToken }) => {
                     <span aria-hidden="true"></span>
                 </a>
             </div>
-
+            <div className="navbar-clickable">
             <div className="navbar-menu" ref={navbar}>
                 <div className="navbar-start">
                     {
@@ -37,8 +38,6 @@ export const NavBar = ({ token, setToken }) => {
                                 <>
                                     <Link to="/tanks" className="navbar-item">All Tanks</Link>
                                     <Link to="/my-tanks" className="navbar-item">My Tanks</Link>
-                                    <Link to="/tags" className="navbar-item">Tag Management</Link>
-                                    <Link to="/users" className="navbar-item">User Profiles</Link>
                                 </>
 
                             )
@@ -69,6 +68,7 @@ export const NavBar = ({ token, setToken }) => {
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </nav>
     )

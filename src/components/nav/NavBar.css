@@ -2,14 +2,23 @@
     max-height: 3rem;
 }
 
+/* .navbar-brand {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+} */
 /* Default styles for the navbar */
 .navbar {
     background-color: #007bff;/* Set your desired navbar background color */
     color: #fff;/* Text color */
-    padding: 20px;
+    padding: 5px;
     text-align: center;
 }
-
+.navbar-clickable {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
 /* Style for the navbar links */
 .navbar a {
     text-decoration: none;
@@ -19,14 +28,15 @@
     margin: 0 10px;
     transition: background-color 0.3s, color 0.3s;
     /* Add smooth transition */
+    display: flex;
+        flex-direction: column;
+        justify-content: center;
 }
 
 /* Hover effect for navbar links */
 .navbar a:hover {
     background-color: #f0f0f0;
-    /* Change background color on hover */
     color: #333;
-    /* Change text color on hover */
 }
 
 /* Optional: Add other hover effects for different parts of the navbar */
@@ -36,9 +46,27 @@
     /* Rotate the logo on hover */
 }
 
+.navbar-item img {
+    max-height: 30rem;
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+}
+
+.navbar-start {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
 .navbar .button:hover {
     /* Add specific hover effect for buttons */
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     /* Add shadow on hover */
 }
 
+/* .navbar-menu {
+    display: flex;
+        flex-direction: row;
+        justify-content: center;
+} */

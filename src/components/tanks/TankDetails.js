@@ -78,6 +78,6 @@ export const TankDetails = () => {
                     </div>
                 </article>
             )}
-        </div>
+        </div> 
     );
 };

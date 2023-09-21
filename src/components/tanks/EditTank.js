@@ -149,7 +149,7 @@ export const EditTankForm = () => {
                 <label htmlFor="dateStarted" className="tankStartDate">Date Started:</label>
                 <input
                     required autoFocus
-                    type="text"
+                    type="date"
                     className="form-control"
                     placeholder="When did you start this masterpiece?"
                     value={tank.started_date || ''}
